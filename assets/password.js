@@ -1,14 +1,17 @@
+// Arrays for the function to choose characters from
 var lowercase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 var uppercase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 var numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '1', '2', '3', '4', '5', '6']
 var special = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', ',', '<', '>', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', ',', '<', '>']
 
+// Function to generate random number
 function randomNumber(min, max) {
     var value = Math.floor(Math.random() * (max - min) + min);
 
     return value;
 }
 
+// Function to generate password
 function generatePassword() {
     
   var passwordLength = window.prompt("Specify the character length of your password. Enter a number.");
@@ -74,24 +77,65 @@ function generatePassword() {
       alert("Success! Here is your new password.");
     }
     
-debugger
     var newPassword = []
 
-    // if (characterLowercaseResponse) {
-        
-    // }
+    
+    // Loop for all 4 criteria
 
-    // for (i = 0; i < passwordLength; i++) {
-    //     if (characterLowercaseResponse && characterUppercaseResponse) {
-    //         newPassword.push(lowercase.concat(uppercase))
-    //     }
-    // }
+    if (characterLowercaseResponse && characterUppercaseResponse && characterSpecialResponse && characterNumberResponse) {
+        for (var i = 0; i < passwordLength; i++) {
+            if (Math.random() < 0.25){
+                newPassword.push(lowercase[randomNumber(0,25)])
+            }
+            if (Math.random() > 0.25 && Math.random() < 0.50){
+                newPassword.push(uppercase[randomNumber(0,25)])
+            }
+            if (Math.random() > 0.50 && Math.random() < 0.75){
+                newPassword.push(special[randomNumber(0,25)])
+            }
+            if (Math.random() > 0.75 && Math.random() < 1){
+                newPassword.push(numbers[randomNumber(0,25)])
+            }
+                
+            
+        }return newPassword.join("")
+    }
+
+    // Loops for single criterion
+
     if (characterLowercaseResponse) {
         for (var i = 0; i < passwordLength; i++) {
         newPassword.push(lowercase[randomNumber(0,25)])
         }
+        return newPassword.join("")
     }
-    return newPassword.join("")
+    
+
+    if (characterUppercaseResponse) {
+        for (var i = 0; i < passwordLength; i++) {
+        newPassword.push(uppercase[randomNumber(0,25)])
+        }
+        return newPassword.join("")
+    }
+
+    if (characterSpecialResponse) {
+        for (var i = 0; i < passwordLength; i++) {
+        newPassword.push(special[randomNumber(0,25)])
+        }
+        return newPassword.join("")
+    }
+
+    if (characterNumberResponse) {
+        for (var i = 0; i < passwordLength; i++) {
+        newPassword.push(numbers[randomNumber(0,25)])
+        }
+        return newPassword.join("")
+    }
+
+    
+
+    
+    
 }
 
 // Get references to the #generate element
