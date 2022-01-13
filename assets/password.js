@@ -81,19 +81,20 @@ function generatePassword() {
 
     
     // Loop for all 4 criteria
+    
 
     if (characterLowercaseResponse && characterUppercaseResponse && characterSpecialResponse && characterNumberResponse) {
         for (var i = 0; i < passwordLength; i++) {
-            if (Math.random() < 0.25){
+            if (Math.random() <= 0.25){
                 newPassword.push(lowercase[randomNumber(0,25)])
             }
-            if (Math.random() > 0.25 && Math.random() < 0.50){
+            else if (Math.random() > 0.25 && Math.random() <= 0.50){
                 newPassword.push(uppercase[randomNumber(0,25)])
             }
-            if (Math.random() > 0.50 && Math.random() < 0.75){
+            else if (Math.random() > 0.50 && Math.random() <= 0.75){
                 newPassword.push(special[randomNumber(0,25)])
             }
-            if (Math.random() > 0.75 && Math.random() < 1){
+            else {
                 newPassword.push(numbers[randomNumber(0,25)])
             }
                 
@@ -101,7 +102,135 @@ function generatePassword() {
         }return newPassword.join("")
     }
 
-    // Loops for single criterion
+    // Loops for 3 selected criteria
+
+    if (characterLowercaseResponse && characterUppercaseResponse && characterSpecialResponse) {
+        for (var i = 0; i < passwordLength; i++) {
+            if (Math.random() <= 0.33){
+                newPassword.push(lowercase[randomNumber(0,25)])
+                
+            }
+            else if (Math.random() > 0.33 && Math.random() <= 0.66){
+                newPassword.push(uppercase[randomNumber(0,25)])
+                
+            }
+            else {
+                newPassword.push(special[randomNumber(0,25)])
+            }
+        }return newPassword.join("")
+    }
+
+    if (characterLowercaseResponse && characterSpecialResponse && characterNumberResponse) {
+        for (var i = 0; i < passwordLength; i++){
+            if (Math.random() <= 0.33){
+                newPassword.push(lowercase[randomNumber(0,25)])
+            }
+            else if (Math.random() > 0.33 && Math.random() <= 0.66){
+                newPassword.push(special[randomNumber(0,25)])
+            }
+            else {
+                newPassword.push(numbers[randomNumber(0,25)])
+            }
+        }return newPassword.join("")
+    }
+
+    if (characterLowercaseResponse && characterUppercaseResponse && characterNumberResponse) {
+        for (var i = 0; i < passwordLength; i++) {
+            if (Math.random() <= 0.33){
+                newPassword.push(lowercase[randomNumber(0,25)])
+            }
+            else if (Math.random() > 0.33 && Math.random() <= 0.66){
+                newPassword.push(uppercase[randomNumber(0,25)])
+            }
+            else {
+                newPassword.push(numbers[randomNumber(0,25)])
+            }
+        }return newPassword.join("")
+    }
+
+    if (characterUppercaseResponse && characterNumberResponse && characterSpecialResponse) {
+        for (var i = 0; i < passwordLength; i++) {
+            if (Math.random() <= 0.33){
+                newPassword.push(uppercase[randomNumber(0,25)])
+            }
+            else if (Math.random() > 0.33 && Math.random() <= 0.66){
+                newPassword.push(numbers[randomNumber(0,25)])
+            }
+            else {
+                newPassword.push(special[randomNumber(0,25)])
+            }
+        }return newPassword.join("")
+    }
+
+    // Loops for two selected criteria
+    
+    if (characterUppercaseResponse && characterLowercaseResponse) {
+        for (var i = 0; i < passwordLength; i++) {
+            if (Math.random() <= 0.5){
+                newPassword.push(uppercase[randomNumber(0,25)])
+            }
+            else {
+                newPassword.push(lowercase[randomNumber(0,25)])
+            }
+        }return newPassword.join("")
+    }
+    
+    if (characterUppercaseResponse && characterSpecialResponse) {
+        for (var i = 0; i < passwordLength; i++) {
+            if (Math.random() <= 0.5){
+                newPassword.push(uppercase[randomNumber(0,25)])
+            }
+            else {
+                newPassword.push(special[randomNumber(0,25)])
+            }
+        }return newPassword.join("")
+    }  
+
+    if (characterUppercaseResponse && characterNumberResponse) {
+        for (var i = 0; i < passwordLength; i++) {
+            if (Math.random() <= 0.5){
+                newPassword.push(uppercase[randomNumber(0,25)])
+            }
+            else {
+                newPassword.push(numbers[randomNumber(0,25)])
+            }
+        }return newPassword.join("")
+    }  
+
+    if (characterLowercaseResponse && characterSpecialResponse) {
+        for (var i = 0; i < passwordLength; i++) {
+            if (Math.random() <= 0.5){
+                newPassword.push(lowercase[randomNumber(0,25)])
+            }
+            else {
+                newPassword.push(special[randomNumber(0,25)])
+            }
+        }return newPassword.join("")
+    }  
+
+    if (characterLowercaseResponse && characterNumberResponse) {
+        for (var i = 0; i < passwordLength; i++) {
+            if (Math.random() <= 0.5){
+                newPassword.push(lowercase[randomNumber(0,25)])
+            }
+            else {
+                newPassword.push(numbers[randomNumber(0,25)])
+            }
+        }return newPassword.join("")
+    }  
+
+    if (characterSpecialResponse && characterNumberResponse) {
+        for (var i = 0; i < passwordLength; i++) {
+            if (Math.random() <= 0.5){
+                newPassword.push(special[randomNumber(0,25)])
+            }
+            else {
+                newPassword.push(numbers[randomNumber(0,25)])
+            }
+        }return newPassword.join("")
+    }  
+
+    // Loops for single selected criterion
 
     if (characterLowercaseResponse) {
         for (var i = 0; i < passwordLength; i++) {
@@ -131,11 +260,6 @@ function generatePassword() {
         }
         return newPassword.join("")
     }
-
-    
-
-    
-    
 }
 
 // Get references to the #generate element
