@@ -5,4 +5,9 @@
 
 ### Link to deployed application:
 
+### https://alexnj1.github.io/password-generator/
+
 ### Screenshot
+
+### ![Screenshot 2022-01-12 230401](https://user-images.githubusercontent.com/93218601/149263966-5b4f922f-fafb-4a85-8706-bc2ebfd67214.png)
+
